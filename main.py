@@ -109,7 +109,7 @@ def create_fbpic(path, likes, followers, reactions, comments, shares):
 
 def get_likes_followers():
     response = requests.get(
-        FACEBOOK_API + f"/me",
+        FACEBOOK_API + "/me",
         params={
             "fields": "fan_count,followers_count",
             "access_token": FACEBOOK_ACCESS_TOKEN,
@@ -120,7 +120,7 @@ def get_likes_followers():
 
 def post_photo():
     response = requests.post(
-        FACEBOOK_API + f"/me/photos",
+        FACEBOOK_API + "/me/photos",
         files={"source": open("facebookpost.png", "rb")},
         params={"access_token": FACEBOOK_ACCESS_TOKEN, "published": False},
     )
